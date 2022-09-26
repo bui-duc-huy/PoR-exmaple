@@ -3,5 +3,10 @@
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^2.0.0",
     "hardhat": "^2.11.2"
+  },
+  "dependencies": {
+    "@chainlink/contracts": "^0.4.1",
+    "@openzeppelin/contracts": "^4.7.3",
+    "ethereum-waffle": "^3.4.4"
   }
 }
