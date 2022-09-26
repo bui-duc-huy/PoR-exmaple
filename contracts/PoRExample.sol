@@ -17,7 +17,7 @@ contract MintableTokenWithPoR is Ownable, ERC20 {
     function mint(address to, uint256 amount) external onlyOwner {
         (, int256 answer, , uint256 updatedAt, ) = _feed.latestRoundData();
 
-        require(updatedAt > block.timestamp - _minimumTimePerRound, "Coin98 PoR Example: Answer outdate");
+        require(updatedAt > block.timestamp - _minimumTimePerRound, "PoR Example: Answer outdate");
 
         uint256 currentSupply = totalSupply();
         uint256 reserves = uint256(answer);
@@ -33,7 +33,7 @@ contract MintableTokenWithPoR is Ownable, ERC20 {
             reserves = reserves * 10**uint256(trueDecimals - reserveDecimals);
         }
 
-        require(currentSupply + amount <= reserves, "Coin98 PoR Example: Invalid reserves");
+        require(currentSupply + amount <= reserves, "PoR Example: Invalid reserves");
 
         _mint(to, amount);
     }
